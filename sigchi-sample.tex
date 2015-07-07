@@ -133,7 +133,7 @@ A prior lab study promised potential of the rich commenting system as a supporti
 \label{fig:figure2}
 \end{figure}
 
-\section{Integration to edX.org} 
+\section{Integration into edX.org} 
 
 The key to success for the deployment of a courseware application is a seamless integration into the existing MOOC service platform.
 As an integral part of the edX.org, we re-implemented the RichReview system as an extension of XBlocks, courseware components for authoring edX courses.
@@ -148,7 +148,11 @@ For this, we defined data elements of RichReview into the two types: heavy-load 
 Then by storing and serving the heavy-loaded data on the distributed cloud file storage---in our case, Amazon Simple Storage Service (S3)---that users can have direct access via web request, we could balance the data transaction load even when there are a high demand for multimedia contents from a large number of users.
 
 \subsection{Semantic Voice Editing}
-Transcription based, voice editing.
+From a prior RichReview deployment study \cite{yoon2015richreview}, the discussant sometimes had to re-record entire voice only to fix a small mistake in the middle of the recording, such as a stutter or a long pause.
+Recently, Rubin et al. presented an audio editing system that leverages speech transcriptions as semantic guidelines for editing voice as if it is text \cite{rubin2013content}.
+We follow this semantic editing approach, but focus on design and developing live editing features, such as partial deletion or insertion.
+Even after having the caption-based editing system, it is a tedious repetitive task to manually trim long-pauses and 'Um's {yoon2014richreview}.
+We will solve this problem by providing a batch post-processing operation that can automatically delete such unnecessary snippets at once.
 
 \subsection{Profile Based Group-assignment}
 Assigning students to groups that can maximize overall diversity of the member compositions.
