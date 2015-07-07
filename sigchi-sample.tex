@@ -133,12 +133,16 @@ A prior lab study promised potential of the rich commenting system as a supporti
 \label{fig:figure2}
 \end{figure}
 
-\section{Expressive peer discussion and assessment} 
+\section{Integration to edX.org} 
 
-How it was implemented.
+The key to success for the deployment of a courseware application is a seamless integration into the existing MOOC service platform.
+As an integral part of the edX.org, we re-implemented the RichReview system as an extension of XBlocks, courseware components for authoring edX courses.
+This allows the MOOC authors to include RichReview discussion sessions without having the hassles of the service management.
+For example, as shown in the Figure 1, the instructor can place the RichReview discussion session within the flow of the course contents.
+Note here that The RichReview XBlock serves the discussion session as an the JavaScript-based web application front-end.
 
 \subsection{Making the Back-end Scalable}
-How I made the data flow parallel.
+We focused on the scalability of data-flow when re-designing the back-end architecture. 
 
 \subsection{Semantic Voice Editing}
 Transcription based, voice editing.
