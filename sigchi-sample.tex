@@ -142,9 +142,10 @@ For example, as shown in the Figure 1, the instructor can place the RichReview d
 Note here that The RichReview XBlock serves the discussion session as an the JavaScript-based web application front-end.
 
 \subsection{Making the Back-end Scalable}
-RichReview 
-We focused on the scalability of data-flow when re-designing the back-end architecture.
-
+RichReview is a media-heavy web application that frequently exchanges audio-visual data with the server.
+Thus, designing a scalable back-end architecture of RichReview is essential for the large-scale deployment.
+For this, we defined data elements of RichReview into the two types: heavy-load multimedia data such as audio recording and PDF documents, and lightweight metadata including textual notes and audio meta information.
+Then by storing and serving the heavy-loaded data on the distributed cloud file storage---in our case, Amazon Simple Storage Service (S3)---that users can have direct access via web request, we could balance the data transaction load even when there are a high demand for multimedia contents from a large number of users.
 
 \subsection{Semantic Voice Editing}
 Transcription based, voice editing.
