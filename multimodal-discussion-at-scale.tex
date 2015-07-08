@@ -1,19 +1,9 @@
 \documentclass{sigchi}
 
-%\toappear{Copyright\copyright~2015. edX. This document may be redistributed under the terms of the CC-BY-SA 3.0 or later, or AGPL v3.0 or later. See \textsc{https://creativecommons.org/licenses/by-sa/3.0/} and \textsc{http://www.gnu.org/licenses/agpl-3.0.en.html} for details.}
-
-%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
 \toappear{ Copyright \copyright 2015. edX. This document may be redistributed under the terms of the CC-BY-SA 3.0 or later, or AGPL v3.0 or later. \\
 See: \textsc{https://creativecommons.org/licenses/by-sa/3.0/}\\
 \textsc{http://www.gnu.org/licenses/agpl-3.0.en.html} for details.\\
 {\emph{UIST'15}}, November 8-11, 2014, Charlotte, NC.}
-%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
-
-
-% Arabic page numbers for submission. 
-% Remove this line to eliminate page numbers for the camera ready copy
-% \pagenumbering{arabic}
-
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
@@ -111,16 +101,16 @@ We partner these with a novel peer-group assignment scheme that maximizes overal
 \fbox{\includegraphics[width=0.95\columnwidth]{figure_edx}}
 }
 \caption{The RichReview web applet running in the edX courseware.}
-\label{fig:figure1}
+\label{fig:screenshot}
 \end{figure}
 
 
 \section{RichReview Multimodal Annotation System}
 RichReview is a tablet based multimodal annotation system for bringing richness of in-person conversation into document writing revision process.
-With RichReview, a commentator can record a combination of input modalities that are available in the modern tablet computers, such as digitizer writing, voice recording, and the pen's hovering.
-For example, a RichReview users can verbally explain about a math concept while pointing over a relevant formula and drawing a graph.
-Moreover, apart from other anchored discussion systems, RichReview puts an annotation thread within text lines of the body passage, so that the surrounding texts could enrich the context of the comments.
-A prior lab study promised potential of the rich commenting system as a supporting tool for document-centric conversation.
+With RichReview, a commentator can record a combination of input modalities, such as pen writing and hovering, voice recording, as well as traditional modalities such as text.
+For example, RichReview users can verbally explain a math concept while pointing to a relevant formula in a document and drawing a graph.
+Moreover, RichReview embeds the annotation thread within text lines of the annotated document, giving clear context for the comments.
+A prior lab study promised potential of the rich commenting system as a supporting tool for document-centric conversation~\cite{you-know-this-one-better-than-i-do}.
 
 \begin{figure}[!h]
 \centering
@@ -131,33 +121,29 @@ A prior lab study promised potential of the rich commenting system as a supporti
 
 \section{Integration into edX.org} 
 
-The key to success for the deployment of a courseware application is a seamless integration into the existing MOOC service platform.
-As an integral part of the edX.org, we re-implemented the RichReview system as an extension of XBlocks, courseware components for authoring edX courses.
-This allows the MOOC authors to include RichReview discussion sessions without having the hassles of the service management.
-For example, as shown in the Figure 1, the instructor can place the RichReview discussion session within the flow of the course contents.
-Note here that The RichReview XBlock serves the discussion session as an the JavaScript-based web application front-end.
+A key to success is seamless integration into the existing MOOC service platform experience.
+As part of bringing RichReview to scale, we re-implemented the RichReview system as an XBlock -- the components out of which edX courses are built.
+This allows the MOOC authors to include RichReview discussion sessions without managing multiple services, and for MOOC students to use the compenent seamlessly integrated into the edX interface.
+As can be seen in Figure~\ref{fig:screenshot}, the instructor can place the RichReview discussion session within the flow of the course contents.
 
 \subsection{Making the Back-end Scalable}
-RichReview is a media-heavy web application that frequently exchanges audio-visual data with the server.
-Thus, designing a scalable back-end architecture of RichReview is essential for the large-scale deployment.
-For this, we defined data elements of RichReview into the two types: heavy-load multimedia data such as audio recording and PDF documents, and lightweight metadata including textual notes and audio meta information.
-Then by storing and serving the heavy-loaded data on the distributed cloud file storage---in our case, Amazon Simple Storage Service (S3)---that users can have direct access via web request, we could balance the data transaction load even when there are a high demand for multimedia contents from a large number of users.
+RichReview is a media-heavy web application that exchanges large amounts of audio-visual data with the server.
+With tens of thousands of learners, designing a scalable back-end architecture of RichReview is essential to successful deployment.
+We broke the data elements of RichReview into the two types: heavy-load multimedia data such as audio recording and PDF documents, and lightweight metadata including textual notes and audio meta information.
+The heavy-weight components are distributed through cloud file storage --- in our case, Amazon Simple Storage Service (S3) --- which gives complete horizontal scalability. The metadata and other small data live in a conventional database. This allows queries for rapid access to many pieces of metadata.
 
 \subsection{Semantic Voice Editing}
-From our prior RichReview deployment study \cite{yoon2015richreview}, the discussant sometimes had to re-record entire voice only to fix a small mistake in the middle of the recording, such as a stutter or a long pause.
+From our prior RichReview deployment study~\cite{yoon2015richreview}, the discussant sometimes had to re-record an entire voice interaction to fix small mistakes in the middle of the recording, such as a stutter or a long pause.
 Recently, Rubin et al. presented an audio editing system that leverages speech transcriptions as semantic guidelines for editing voice as if it is text \cite{rubin2013content}.
-We follow this semantic editing approach, but focus on design and developing live editing features, such as partial deletion or insertion.
-Even after having the caption-based editing system, it is a tedious repetitive task to manually trim long-pauses and 'Um's {yoon2014richreview}.
-We will solve this problem by providing a batch post-processing operation that can automatically delete such unnecessary snippets at once.
+We are following this semantic editing approach, focusing on design and development of live editing features, such as partial deletion or insertion.
+Even after having the caption-based editing system, it is a tedious repetitive task to manually trim long-pauses and 'Um's~\cite{yoon2014richreview}.
+We will solve this problem by providing a batch post-processing operation that can automatically delete several such unnecessary snippets at once.
 
 \subsection{Profile Based Group-assignment}
 Assigning students to groups that can maximize overall diversity of the member compositions.
 
 \section{Acknowledgement} 
 Dongwook Yoon gratefully acknowledges the support from the Kwanjeong educational foundation.
-
-reviset edX.org is ... part
-
 
 \bibliographystyle{acm-sigchi}
 \bibliography{sample}
