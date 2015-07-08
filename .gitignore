@@ -21,3 +21,6 @@
 *.mtc1
 *.out
 *.synctex.gz
+multimodal-discussion-at-scale.pdf
+.*
+!.gitignore
