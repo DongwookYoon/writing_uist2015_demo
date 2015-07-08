@@ -91,7 +91,7 @@ RichReview brings expressivity into asynchronous document annotations through th
 The system was built for purpose of writing feedback, but was designed to supporting a range of modes of online peer-discussion.
 
 In this work, we demonstrate how integration of RichReview into a MOOC platform can potentially open an expressive discussion channel among a large number of students.
-As the first step, we re-implemented the RichReview's front-end, integrating it into Open edX -- a MOOC platform with millions of learners, including several national deploymnets. We designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
+As the first step, we re-implemented the RichReview's front-end, integrating it into Open edX. We designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
 We partner these with a novel peer-group assignment scheme that maximizes overall diversity of group composition using student profile data.
 
 \begin{figure}[!h]
@@ -117,15 +117,19 @@ A prior lab study promised potential of the rich commenting system as a supporti
 \centering
 \includegraphics[width=0.95\columnwidth]{figure_architecture}
 \caption{Scalable back-end architecture of the multimodal annotation system.}
-\label{fig:figure2}
+\label{fig:scalable}
 \end{figure}
 
 \section{Integration into edX.org} 
 
-A key to success is seamless integration into the existing MOOC service platform experience.
-As part of bringing RichReview to scale, we re-implemented the RichReview system as an XBlock -- the components out of which edX courses are built.
+In prior work, we saw RichReview perform well in traditional classroom settings~cite{something-or-other}. 
+In order to more accurately measure the impact of RichReview, we would like to integrate it into a setting which supports massive numbers of learners. 
+Open edX is a platform which support both MOOCs, with millions of learners on the edx.org web site, a large level of residential use (over 80\% of MIT students use edX residentially), over 100 open source deployments, including several deployments as part of national initiatives to improve training and education.
+Open edX was chosen due to the combination of support for research (including frameworks for randomized control trials, data collection, and frameworks for integration with novel pedagogical experiences like RichReview), anecdotal data from residential trials, and statistical evidence from MOOC trials. 
+
+A key to success is seamless integration into the platform, including support for scaling to tens of thousands of learners. As part of bringing RichReview to scale, we re-implemented the RichReview system as an XBlock -- the components out of which Open edX courses are built.
 This allows the MOOC authors to include RichReview discussion sessions without managing multiple services, and for MOOC students to use the compenent seamlessly integrated into the edX interface.
-As can be seen in Figure~\ref{fig:screenshot}, the instructor can place the RichReview discussion session within the flow of the course contents.
+As can be seen in Fig.~\ref{fig:screenshot}, the instructor can place the RichReview discussion session within the flow of the course contents. The overall system architecture is shown in Fig.~\ref{fig:scalable}
 
 \subsection{Making the Back-end Scalable}
 RichReview is a media-heavy web application that exchanges large amounts of audio-visual data with the server.
