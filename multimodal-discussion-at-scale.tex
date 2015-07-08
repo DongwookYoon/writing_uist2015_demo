@@ -70,7 +70,7 @@ breaklinks=true,
 \maketitle
 
 \begin{abstract}
-Abstract
+In this demo, we present RichReview, a multlimodal peer discussion system, implemented as an XBlock of the edX courseware platform. The system brings richness of face-to-face like communication into online learning \emph{at scale}. With this demonstration, we discuss the system's scalable back-end architecture, semantic voice editing user interface, and a future research plan for the profile based group-assignment scheme.
 \end{abstract}
 
 \keywords{
@@ -83,12 +83,12 @@ Abstract
 
 \section{Introduction}
 
-Peer-discussion in classrooms can improve student learning outcomes~\cite{chi2014icap}, in particula, strengthening students’ mental model about concepts~\cite{nicol2003peer} and broaden student perspectives on problem solving~\cite{smith2009peer}.
+Peer-discussion in classrooms can improve student learning outcomes with interactive engagement on the course concepts~\cite{chi2014icap}.
 Massive open online course providers provide a large number of students with online peer discussion activities through discussion forums~\cite{13Mitros6002}, video chats, and peer feedback on assignments~\cite{linc}. These face a tradeoff between the richness of synchronous interaction and the flexibility of asynchronous interactions.
 
 Recently, we presented a multimodal annotation system called RichReview~\cite{yoon2014richreview}.
 RichReview brings expressivity into asynchronous document annotations through the use of student-recorded multimedia, including text, audio, and gestures.
-The system was built for purpose of writing feedback, but was designed to supporting a range of modes of online peer-discussion.
+The system was originally built for the purpose of writing feedback, but was redesigned to support a range of modes of online peer-discussion.
 
 In this work, we demonstrate how integration of RichReview into a MOOC platform can potentially open an expressive discussion channel among a large number of students.
 As the first step, we re-implemented the RichReview's front-end, integrating it into Open edX. We designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
@@ -109,25 +109,25 @@ We partner these with a novel peer-group assignment scheme that maximizes overal
 \section{RichReview Multimodal Annotation System}
 RichReview is a tablet based multimodal annotation system for bringing richness of in-person conversation into document writing revision process.
 With RichReview, a commentator can record a combination of input modalities, such as pen writing and hovering, voice recording, as well as traditional modalities such as text.
-For example, RichReview users can verbally explain a math concept while pointing to a relevant formula in a document and drawing a graph.
+For example, RichReview users can verbally explain a math concept while pointing to a formula in a document and drawing a graph.
 Moreover, RichReview embeds the annotation thread within text lines of the annotated document, giving clear context for the comments.
-A prior lab study promised potential of the rich commenting system as a supporting tool for document-centric conversation~\cite{you-know-this-one-better-than-i-do}.
+A prior lab study promised potential of the rich commenting system as a supporting tool for document-centric conversation~\cite{yoon2014richreview}.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.95\columnwidth]{figure_architecture}
-\caption{Scalable back-end architecture of the multimodal annotation system.}
+\includegraphics[width=0.85\columnwidth]{figure_architecture}
+\caption{Scalable back-end architecture of the RichReview on edX.}
 \label{fig:scalable}
 \end{figure}
 
 \section{Integration into edX.org} 
 
-In prior work, we saw RichReview perform well in traditional classroom settings~cite{something-or-other}. 
+In prior work, we saw RichReview perform well in traditional classroom settings~\cite{yoon2015richreview}.
 In order to more accurately measure the impact of RichReview, we would like to integrate it into a setting which supports massive numbers of learners. 
 Open edX is a platform which support both MOOCs, with millions of learners on the edx.org web site, a large level of residential use (over 80\% of MIT students use edX residentially), over 100 open source deployments, including several deployments as part of national initiatives to improve training and education.
 Open edX was chosen due to the combination of support for research (including frameworks for randomized control trials, data collection, and frameworks for integration with novel pedagogical experiences like RichReview), anecdotal data from residential trials, and statistical evidence from MOOC trials. 
 
-A key to success is seamless integration into the platform, including support for scaling to tens of thousands of learners. As part of bringing RichReview to scale, we re-implemented the RichReview system as an XBlock -- the components out of which Open edX courses are built.
+A key to success is seamless integration into the platform, including support for scaling to tens of thousands of learners. As part of bringing RichReview to scale, we re-implemented the RichReview system as an XBlock --- the components out of which Open edX courses are built.
 This allows the MOOC authors to include RichReview discussion sessions without managing multiple services, and for MOOC students to use the compenent seamlessly integrated into the edX interface.
 As can be seen in Fig.~\ref{fig:screenshot}, the instructor can place the RichReview discussion session within the flow of the course contents. The overall system architecture is shown in Fig.~\ref{fig:scalable}
 
@@ -139,13 +139,16 @@ The heavy-weight components are distributed through cloud file storage --- in ou
 
 \subsection{Semantic Voice Editing}
 From our prior RichReview deployment study~\cite{yoon2015richreview}, the discussant sometimes had to re-record an entire voice interaction to fix small mistakes in the middle of the recording, such as a stutter or a long pause.
-Recently, Rubin et al. presented an audio editing system that leverages speech transcriptions as semantic guidelines for editing voice as if it is text \cite{rubin2013content}.
+Recently, Rubin et al. presented an audio editing system that leverages speech transcriptions as semantic guidelines for editing voice as if it is text~\cite{rubin2013content}.
 We are following this semantic editing approach, focusing on design and development of live editing features, such as partial deletion or insertion.
 Even after having the caption-based editing system, it is a tedious repetitive task to manually trim long-pauses and 'Um's~\cite{yoon2014richreview}.
 We will solve this problem by providing a batch post-processing operation that can automatically delete several such unnecessary snippets at once.
 
-\subsection{Profile Based Group-assignment}
-We would like to explore the effects of group assignments on performance. Prior work showed that speed of feedback is important. In addition, we can group students among a number of axes, such as linguistic, cultural, and geographic distance, prior knowledge, communication styles, age, and similar. We are developing a system which allows us to create a number of such axes, and assign students trying to either minimize or maximize distance on those axes.
+\subsection{Profile Based Group Formation}
+We would like to explore how different peer group formations influence performances of students discussion. 
+In MOOCs, it is an open research question to assign a large pool of students into the group composition that maximizes overall group heterogeneity or homogeneity.
+We will approach this problem by modeling student characteristic based on a combination of (1) the readily available profile data, such as linguistic, cultural, geographic distance, and age, and (2) the profile data inferred from a student's past RichReview discussions, such as communication styles and topic of interests.
+We are developing a system which minimizes or maximizes overall distance between students on the axes of those characteristic dimensions.
 
 \section{Acknowledgement} 
 We would like to gratefully acknowledges the support from the Kwanjeong educational foundation, the course staffs who have supported the development of RichReview, as well as the students who participate by providing each other with thoughtful, meaningful feedback.
