@@ -63,7 +63,7 @@ breaklinks=true,
 % End of preamble. Here it comes the document.
 \begin{document}
 
-\title{Multimodal Peer Discussion at Scale}
+\title{Multimodal Peer Discussion with RichReview on edX}
 
 \numberofauthors{3}
 \author{
@@ -92,18 +92,16 @@ Abstract
 
 \section{Introduction}
 
-Peer-discussion is an important interactive learning activity \cite{chi2014icap} that can strengthen students’ mental model about classroom concepts \cite{nicol2003peer} and broaden their perspective on problem solving \cite{smith2009peer}.
-Massive open online course providers endeavored to provide a large number of students with online peer discussion activities through discussion forums or video chats.
-However, those communication tools does not support both of the rich face-to-face like communication modalities and the flexibility of asynchronous interaction together.
+Peer-discussion in classrooms can improve student learning outcomes~\cite{chi2014icap}, in particula, strengthening students’ mental model about concepts~\cite{nicol2003peer} and broaden student perspectives on problem solving~\cite{smith2009peer}.
+Massive open online course providers provide a large number of students with online peer discussion activities through discussion forums~\cite{mitros-6002x}, video chats, and peer feedback on assignments~\cite{mitros-linc}. These face a tradeoff between the richness of synchronous interaction and the flexibility of asynchronous interactions.
 
-Recently, we presented a multimodal annotation system called RichReview \cite{yoon2014richreview}.
-RichReview brought expressivity of multimedia recording into asynchronous document annotations.
-Although the original system was built for the writing feedback purpose, we acknowledged the potential of repurposing RichReview's interaction model for supporting online peer-discussion.
+Recently, we presented a multimodal annotation system called RichReview~\cite{yoon2014richreview}.
+RichReview brings expressivity into asynchronous document annotations through the use of student-recorded multimedia, including text, audio, and gestures.
+The system was built for purpose of writing feedback, but was designed to supporting a range of modes of online peer-discussion.
 
-In this work, we will demonstrate how integration of RichReview into a MOOC platform can potentially open an expressive discussion channel among a large number of students.
-As the first step, we re-implemented the RichReview's front-end as an course applet in the platform of edX--a MOOC provider with over 3 million learners worldwide.
-Then we designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
-And finally, we present a novel peer-group assignment scheme that maximizes overall diversity of group composition using students profile data.
+In this work, we demonstrate how integration of RichReview into a MOOC platform can potentially open an expressive discussion channel among a large number of students.
+As the first step, we re-implemented the RichReview's front-end, integrating it into Open edX -- a MOOC platform with millions of learners, including several national deploymnets. We designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
+We partner these with a novel peer-group assignment scheme that maximizes overall diversity of group composition using student profile data.
 
 \begin{figure}[!h]
 \centering
@@ -117,7 +115,7 @@ And finally, we present a novel peer-group assignment scheme that maximizes over
 \end{figure}
 
 
-\section{Previous Work: RichReview Multimodal Annotation System}
+\section{RichReview Multimodal Annotation System}
 RichReview is a tablet based multimodal annotation system for bringing richness of in-person conversation into document writing revision process.
 With RichReview, a commentator can record a combination of input modalities that are available in the modern tablet computers, such as digitizer writing, voice recording, and the pen's hovering.
 For example, a RichReview users can verbally explain about a math concept while pointing over a relevant formula and drawing a graph.
