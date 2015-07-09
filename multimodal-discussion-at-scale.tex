@@ -83,15 +83,15 @@ In this demo, we present RichReview, a multimodal peer discussion system, implem
 
 \section{Introduction}
 
-Peer-discussion in classrooms can improve student learning outcomes with interactive engagement on the course concepts~\cite{chi2014icap}.
+Peer discussion in classrooms can improve student learning outcomes with interactive engagement on the course concepts~\cite{chi2014icap}.
 Massive open online course providers provide a large number of students with online peer discussion activities through discussion forums~\cite{13Mitros6002}, video chats, and peer feedback on assignments~\cite{linc}. These face a trade-off between the richness of synchronous interaction and the flexibility of asynchronous interactions.
 
 We developed a multimodal annotation system called RichReview~\cite{yoon2014richreview} which brings a high level of expressivity into asynchronous document annotations through the use of student-recorded multimedia, including text, audio, and gestures.
-The system was originally built for the purpose of writing feedback, but was redesigned to support a range of modes of online peer-discussion.
+The system was originally built for the purpose of writing feedback, but was redesigned to support a range of modes of online peer discussion.
 
 In this work, we demonstrate how integration of RichReview into a MOOC platform can potentially open an expressive discussion channel in asynchronous environments with large numbers of students.
 As the first step, we re-implemented the RichReview's front-end, integrating it into Open edX. We designed a scalable back-end architecture for transmitting and storing multimedia comments created by a number of students.
-We partner these with a novel peer-group assignment scheme that maximizes overall diversity of group composition using student profile data.
+We partner these with a novel peer group assignment scheme that maximizes overall diversity of group composition using student profile data.
 
 \begin{figure}[!h]
 \centering
@@ -143,13 +143,13 @@ Even after having the caption-based editing system, it is a tedious repetitive t
 We will solve this problem by providing a batch post-processing operation that can automatically delete several such unnecessary snippets at once.
 
 \subsection{Profile Based Group Formation}
-We would like to explore how different peer group formations influence performances of students discussion. 
+We would like to explore how different peer group formations influence performances of student discussion. 
 In MOOCs, it is an open research question to assign a large pool of students into the group composition that maximizes overall group heterogeneity or homogeneity.
 We will approach this problem by modeling student characteristic based on a combination of (1) the readily available profile data, such as linguistic, cultural, geographic distance, and age, and (2) the profile data inferred from a student's past RichReview discussions, such as communication styles and topic of interests.
 We are developing a system which minimizes or maximizes overall distance between students on the axes of those characteristic dimensions.
 
 \section{Acknowledgment} 
-We would like to gratefully acknowledges the support from the Kwanjeong educational foundation, the course staffs who have supported the development of RichReview, as well as the students who participate by providing each other with thoughtful, meaningful feedback.
+We would like to gratefully acknowledge the support from the Kwanjeong educational foundation, the course staffs who have supported the development of RichReview, as well as the students who participate by providing each other with thoughtful, meaningful feedback.
 
 \bibliographystyle{acm-sigchi}
 \bibliography{sample}
